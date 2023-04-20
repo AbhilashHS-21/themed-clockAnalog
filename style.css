@@ -33,7 +33,7 @@ body {
   margin: 0;
 }
 .btn {
-  margin-inline: auto;
+  margin: 0 8rem;
 }
 .toggle {
   position: relative;
