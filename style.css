@@ -44,7 +44,7 @@ body {
   border: 0;
   border-radius: 4px;
   padding: 0.4rem 0.8rem;
-  margin: 2rem 3.5rem;
+  margin: 2rem auto;
 }
 
 .toggle:focus {
@@ -62,7 +62,8 @@ body {
   position: relative;
   width: 220px;
   aspect-ratio: 1;
-  border: 2px dashed var(--primary-color);
+  border: 3px solid var(--primary-color);
+  box-shadow: 0 0 80px 5px var(--primary-color);
   border-radius: 50%;
 }
 
@@ -115,6 +116,65 @@ body {
   border-radius: 50%;
 }
 
+.hours {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  position: absolute;
+  display: none;
+}
+.glow {
+  display: block;
+}
+
+.hour-1 {
+  left: 9.6rem;
+  top: 0.9rem;
+}
+.hour-2 {
+  left: 11.8rem;
+  top: 3rem;
+}
+.hour-3 {
+  left: 12.5rem;
+  top: 6rem;
+}
+.hour-4 {
+  left: 11.6rem;
+  top: 9rem;
+}
+.hour-5 {
+  left: 9.6rem;
+  top: 11.2rem;
+}
+.hour-6 {
+  left: 6.5rem;
+  top: 12rem;
+}
+.hour-7 {
+  left: 3.7rem;
+  top: 11.4rem;
+}
+.hour-8 {
+  left: 1.2rem;
+  top: 9rem;
+}
+.hour-9 {
+  left: 0.2rem;
+  top: 6rem;
+}
+.hour-10 {
+  left: 1rem;
+  top: 3.2rem;
+}
+.hour-11 {
+  left: 3rem;
+  top: 1rem;
+}
+.hour-12 {
+  left: 6.2rem;
+}
+
 .time {
   font-size: 60px;
 }
@@ -135,5 +195,4 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.5s ease-in;
 }

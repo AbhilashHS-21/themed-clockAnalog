@@ -5,6 +5,8 @@ const timeEl = document.querySelector(".time");
 const dateEl = document.querySelector(".date");
 const toggle = document.querySelector(".toggle");
 
+const hours = document.querySelectorAll("div[class*=hour-]");
+
 const days = [
   "Sunday",
   "Monday",
@@ -39,6 +41,22 @@ toggle.addEventListener("click", (e) => {
     e.target.innerHTML = "Light mode";
   }
 });
+
+function showCurrentTime() {
+  let time = new Date();
+  let hrs = time.getHours();
+  if (hrs <= 12) {
+    hr = hrs;
+  } else {
+    hr = hrs - 12;
+  }
+
+  let hrsTime = document.querySelector(".hour-" + hr);
+  let hourTime = parseInt(hrsTime.innerHTML);
+  if (hr === hourTime) {
+    hrsTime.classList.add("glow");
+  }
+}
 
 function setTime() {
   const time = new Date();
@@ -85,5 +103,6 @@ const scale = (num, in_min, in_max, out_min, out_max) => {
 };
 
 setTime();
+showCurrentTime();
 
 setInterval(setTime, 1000);
