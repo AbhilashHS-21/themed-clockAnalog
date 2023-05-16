@@ -5,8 +5,6 @@ const timeEl = document.querySelector(".time");
 const dateEl = document.querySelector(".date");
 const toggle = document.querySelector(".toggle");
 
-const hours = document.querySelectorAll("div[class*=hour-]");
-
 const days = [
   "Sunday",
   "Monday",
@@ -42,27 +40,13 @@ toggle.addEventListener("click", (e) => {
   }
 });
 
-function showCurrentTime() {
-  let time = new Date();
-  let hrs = time.getHours();
-  if (hrs <= 12) {
-    hr = hrs;
-  } else {
-    hr = hrs - 12;
-  }
-
-  let hrsTime = document.querySelector(".hour-" + hr);
-  let hourTime = parseInt(hrsTime.innerHTML);
-  if (hr === hourTime) {
-    hrsTime.classList.add("glow");
-  }
-}
-
 function setTime() {
   const time = new Date();
+
   const month = time.getMonth();
   const day = time.getDay();
   const date = time.getDate();
+
   const hours = time.getHours();
   const hoursForClock = hours >= 13 ? hours % 12 : hours;
   const minutes = time.getMinutes();
@@ -91,6 +75,17 @@ function setTime() {
     360
   )}deg)`;
 
+  // To toggle hours and minutes according to time
+
+  const hr = document.querySelector(".hours");
+  hr.setAttribute("style", `--h:${hoursForClock}`);
+  hr.innerHTML = `${hoursForClock}`;
+
+  const min = document.querySelector(".mins");
+  min.setAttribute("style", `--m:${minutes}`);
+  // min.style.cssText += `style="--m:${minClock}"`;
+  min.innerHTML = `${minutes < 10 ? `0${minutes}` : minutes}`;
+
   timeEl.innerHTML = `${hoursForClock}:${
     minutes < 10 ? `0${minutes}` : minutes
   } ${ampm}`;
@@ -103,6 +98,5 @@ const scale = (num, in_min, in_max, out_min, out_max) => {
 };
 
 setTime();
-showCurrentTime();
 
 setInterval(setTime, 1000);

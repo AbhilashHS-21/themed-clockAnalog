@@ -45,6 +45,7 @@ body {
   border-radius: 4px;
   padding: 0.4rem 0.8rem;
   margin: 2rem auto;
+  z-index: 20;
 }
 
 .toggle:focus {
@@ -79,16 +80,18 @@ body {
 }
 
 .needle.hour {
+  width: 4px;
   transform: translate(-50%, -100%) rotate(0deg);
 }
 
 .needle.minute {
   transform: translate(-50%, -100%) rotate(0deg);
-  height: 100px;
+  height: 95px;
 }
 
 .needle.second {
   transform: translate(-50%, -100%) rotate(0deg);
+  width: 2px;
   height: 100px;
   background-color: #e74c3c;
 }
@@ -117,62 +120,24 @@ body {
 }
 
 .hours {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--primary-color);
   position: absolute;
-  display: none;
+  inset: 11px;
+  color: var(--primary-color);
+  display: inline-block;
+  text-align: center;
+  transform: rotate(calc(30deg * var(--h)));
+  font-size: 1rem;
+  font-weight: 900;
 }
-.glow {
-  display: block;
-}
-
-.hour-1 {
-  left: 9.6rem;
-  top: 0.9rem;
-}
-.hour-2 {
-  left: 11.8rem;
-  top: 3rem;
-}
-.hour-3 {
-  left: 12.5rem;
-  top: 6rem;
-}
-.hour-4 {
-  left: 11.6rem;
-  top: 9rem;
-}
-.hour-5 {
-  left: 9.6rem;
-  top: 11.2rem;
-}
-.hour-6 {
-  left: 6.5rem;
-  top: 12rem;
-}
-.hour-7 {
-  left: 3.7rem;
-  top: 11.4rem;
-}
-.hour-8 {
-  left: 1.2rem;
-  top: 9rem;
-}
-.hour-9 {
-  left: 0.2rem;
-  top: 6rem;
-}
-.hour-10 {
-  left: 1rem;
-  top: 3.2rem;
-}
-.hour-11 {
-  left: 3rem;
-  top: 1rem;
-}
-.hour-12 {
-  left: 6.2rem;
+.mins {
+  position: absolute;
+  inset: 0px;
+  color: var(--primary-color);
+  text-align: center;
+  transform: rotate(calc(6deg * var(--m)));
+  font-size: 0.6rem;
+  font-weight: 900;
+  transition: all 0.5s ease-in;
 }
 
 .time {
@@ -180,7 +145,7 @@ body {
 }
 
 .date {
-  color: #aaa;
+  color: #ffffff;
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.3px;
