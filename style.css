@@ -129,6 +129,7 @@ body {
   font-size: 1rem;
   font-weight: 900;
 }
+
 .mins {
   position: absolute;
   inset: 0px;
@@ -139,13 +140,16 @@ body {
   font-weight: 900;
   transition: all 0.5s ease-in;
 }
-
+/* .mins span {
+  transform: rotate(calc(-6deg * var(--h)));
+  background-color: aqua;
+} */
 .time {
   font-size: 60px;
 }
 
 .date {
-  color: #ffffff;
+  color: var(--primary-color);
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.3px;

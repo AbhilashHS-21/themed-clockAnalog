@@ -1,8 +1,10 @@
 const hourEl = document.querySelector(".hour");
 const minuteEl = document.querySelector(".minute");
 const secondEl = document.querySelector(".second");
+
 const timeEl = document.querySelector(".time");
 const dateEl = document.querySelector(".date");
+
 const toggle = document.querySelector(".toggle");
 
 const days = [
@@ -49,6 +51,8 @@ function setTime() {
 
   const hours = time.getHours();
   const hoursForClock = hours >= 13 ? hours % 12 : hours;
+  const hours0 = hoursForClock === 0 ? (hoursForClock = 12) : hoursForClock;
+
   const minutes = time.getMinutes();
   const seconds = time.getSeconds();
   const ampm = hours >= 12 ? "PM" : "AM";
@@ -78,13 +82,13 @@ function setTime() {
   // To toggle hours and minutes according to time
 
   const hr = document.querySelector(".hours");
-  hr.setAttribute("style", `--h:${hoursForClock}`);
-  hr.innerHTML = `${hoursForClock}`;
+  hr.setAttribute("style", `--h:${hours0}`);
+  hr.innerHTML = `${hours0}`;
 
   const min = document.querySelector(".mins");
   min.setAttribute("style", `--m:${minutes}`);
-  // min.style.cssText += `style="--m:${minClock}"`;
-  min.innerHTML = `${minutes < 10 ? `0${minutes}` : minutes}`;
+  const min_span = document.querySelector(".mins span");
+  min_span.innerHTML = `${minutes < 10 ? `0${minutes}` : minutes}`;
 
   timeEl.innerHTML = `${hoursForClock}:${
     minutes < 10 ? `0${minutes}` : minutes
