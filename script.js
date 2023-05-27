@@ -83,12 +83,13 @@ function setTime() {
 
   const hr = document.querySelector(".hours");
   hr.setAttribute("style", `--h:${hours0}`);
-  hr.innerHTML = `${hours0}`;
+  const hr_p = document.querySelector(".hours p");
+  hr_p.innerHTML = `${hours0}`;
 
   const min = document.querySelector(".mins");
   min.setAttribute("style", `--m:${minutes}`);
-  const min_span = document.querySelector(".mins span");
-  min_span.innerHTML = `${minutes < 10 ? `0${minutes}` : minutes}`;
+  const min_p = document.querySelector(".mins p");
+  min_p.innerHTML = `${minutes < 10 ? `0${minutes}` : minutes}`;
 
   timeEl.innerHTML = `${hoursForClock}:${
     minutes < 10 ? `0${minutes}` : minutes
