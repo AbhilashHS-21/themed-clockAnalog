@@ -50,8 +50,9 @@ function setTime() {
   const date = time.getDate();
 
   const hours = time.getHours();
-  const hoursForClock = hours >= 13 ? hours % 12 : hours;
-  const hours0 = hoursForClock === 0 ? (hoursForClock = 12) : hoursForClock;
+  let hour0 = 0;
+  hour0 = hours === 0 ? (hour0 = 12) : hours;
+  const hoursForClock = hour0 >= 13 ? hour0 % 12 : hour0;
 
   const minutes = time.getMinutes();
   const seconds = time.getSeconds();
@@ -82,9 +83,9 @@ function setTime() {
   // To toggle hours and minutes according to time
 
   const hr = document.querySelector(".hours");
-  hr.setAttribute("style", `--h:${hours0}`);
-  const hr_p = document.querySelector(".hours p");
-  hr_p.innerHTML = `${hours0}`;
+  hr.setAttribute("style", `--h:${hoursForClock}`);
+  const hr_elem = document.querySelector(".hours p");
+  hr_elem.innerHTML = `${hoursForClock}`;
 
   const min = document.querySelector(".mins");
   min.setAttribute("style", `--m:${minutes}`);
